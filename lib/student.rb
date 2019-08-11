@@ -26,7 +26,9 @@ class Student
   end
 
   def save
-    
+    sql = <<-SQL
+    INSERT INTO songs
+    VALUES (name, grade)
   end
 
 end
