@@ -36,6 +36,8 @@ class Student
     @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0]
   end
 
+  #takes in a hash of attributes and uses metaprogramming to create a new student object. Then it uses the #save method to save that student to the database
+  #returns the new object that it instantiated
   def self.create(name:, grade:)
     student = Student.new(name, grade)
     student.save
