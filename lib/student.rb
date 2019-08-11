@@ -1,14 +1,20 @@
 class Student
+  #responds to a getter for :id
+  #does not provide a setter for :id
   attr_accessor :name, :grade
   attr_reader :id
   # Remember, you can access your database connection anywhere in this class
   #  with DB[:conn]
+
+  #the name attribute can be accessed
+  #the grade attribute can be accessed
   def initialize(name, grade, id=nil)
     @name = name
     @grade = grade
     @id = id
   end
 
+  #creates the students table in the database
   def self.create_table
     sql = <<-SQL
       CREATE TABLE students(
@@ -20,6 +26,7 @@ class Student
    DB[:conn].execute(sql)
   end
 
+  #drops the students table from the database
   def self.drop_table
     sql = "DROP TABLE students"
     DB[:conn].execute(sql)
