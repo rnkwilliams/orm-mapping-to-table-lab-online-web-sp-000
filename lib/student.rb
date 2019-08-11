@@ -16,6 +16,8 @@ class Student
       name TEXT,
       grade INTEGER
       );
+
+      
   end
 
 end
